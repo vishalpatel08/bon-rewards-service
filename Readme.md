@@ -21,7 +21,7 @@ API Endpoints
 
 1. Create a User
 Creates a new user.
-Endpoint: POST http://localhost:8080/api/v1/users
+Endpoint: POST https://bon-rewards-service.onrender.com/api/v1/users
 Request Body:
 JSON:
 {
@@ -30,19 +30,20 @@ JSON:
 
 2. Create a Bill
 Creates a new, unpaid bill for a user. To test the reward logic, create at least three bills with future due dates.
-Endpoint: POST http://localhost:8080/api/v1/bills
+Endpoint: POST https://bon-rewards-service.onrender.com/api/v1/bills
 Request Body:
 JSON : 
 {
     "user_id": 1,
     "amount": 5000,
-    "due_date": "2025-10-15T23:59:59Z"
+    "due_date": "2026-10-15T23:59:59Z" 
 }
+for reward case you can use this two more dates "2026-11-15T23:59:59Z", "2026-12-15T23:59:59Z"
+for not reward: "2024-10-15T23:59:59Z"
 
 3. Pay a Bill
 Marks a bill as paid and triggers the reward check logic.
-Endpoint: POST http://localhost:8080/api/v1/bills/{billID}/pay
-Example URL: http://localhost:8080/api/v1/bills/1/pay
+Endpoint: POST https://bon-rewards-service.onrender.com/api/v1/bills/{billID}/pay 
 Request Body: (No body required)
 Success Response (with reward):
 JSON : 
